@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Transportadora Dely</title>
+	</head>
+	<body>
+		<h1>Transportadora Dely</h1>
+
+		<div id="consulta">
+			<h2>Funcionalidade 1: Consultar trechos e modalidades</h2>
+
+			<div>
+				<label for="city1">Cidade de origem:</label>
+				<select name="city1" id="selectCity1" required>
+					<option value="-1">Selecione</option>
+				</select>
+
+				<br /><br />
+				<label for="city2">Cidade de destino:</label>
+				<select name="city2" id="selectCity2" required>
+					<option value="-1">Selecione</option>
+				</select>
+
+				<br /><br />
+				<label for="trucks">Tamanho do caminhão:</label>
+				<select name="trucks" id="trucks" required>
+					<option value="-1">Selecione</option>
+				</select>
+				<br /><br />
+				<input type="button" onclick="consult()" value="Consultar" />
+			</div>
+
+			<br />
+
+			<h4>Resultado da consulta:</h4>
+
+			<div id="output">Aguardando dados...</div>
+		</div>
+
+		<br /><br />
+		<div id="cadastro">
+			<h2>Funcionalidade 2: Cadastrar transporte</h2>
+
+			<div id="addingOrder">
+				<label for="companyName">Nome da empresa:</label>
+				<br /><input type="text" name="companyName" id="companyName" size="50" />
+
+				<div id="itemsRegister">
+					<br />
+					<label for="items">Item: </label>
+					<input type="text" value="" name="items" id="items" size="30" />
+
+					<label for="quantity">Quantidade: </label>
+					<input type="number" value="" name="quantity" id="quantity" />
+
+					<label for="weight">Peso (kgs): </label>
+					<input type="number" step="0.1" value="" name="weight" id="weight" />
+
+					<input type="button" value="Adicionar" onclick="addItems()" />
+
+					<h4>Resumo dos itens:</h4>
+
+					<ol id="itemsList"></ol>
+
+					<h4>Cidades:</h4>
+					<p>
+						Adicione as cidades de destino e selecione a quantidade de cada item a ser entregue na
+						localidade
+					</p>
+
+					<div id="citiesId">
+						<label for="originCity">Cidade de origem: </label>
+						<select name="originCity" id="originCity" class="selectCities">
+							<option value="-1">Selecione</option>
+						</select>
+					</div>
+
+					<br />
+					<div id="addCities"></div>
+
+					<input type="button" value="Adicionar cidade" onclick="createDropdownGroup()" />
+
+					<br /><br /><br /><button onclick="createOrder()">Finalizar pedido</button>
+				</div>
+			</div>
+			<h4>Informações do pedido:</h4>
+
+			<p id="orderCost"></p>
+		</div>
+
+		<div id="dados">
+			<br/><br/><h2>Funcionalidade 3: Dados estatísticos</h2>
+
+			<button id="buttonData" onclick="showData()">Gerar dados</button>
+
+			<div id="dataSummary"></div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
